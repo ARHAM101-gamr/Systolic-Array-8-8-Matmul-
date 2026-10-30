@@ -1,0 +1,18 @@
+# Quartus generated (rebuilt by every compile, tens of MB)
+db/
+incremental_db/
+output_files/
+*.qws
+c5_pin_model_dump.txt
+flow_log.txt
+flow_err.txt
+status.txt
+
+# Simulation generated (rebuilt by sim/run_sim.sh)
+sim/*.hex
+sim/*.txt
+sim/*.vvp
+sim/*.vcd
+
+# Old copy (git history replaces it)
+v1_backup/

@@ -1,0 +1,37 @@
+# 8x8 systolic-array matrix multiply unit, standalone compile on the DE10-Standard.
+# All data ports are VIRTUAL PINS: Quartus keeps them as internal nodes instead of
+# real FPGA pins (the unit has ~420 data bits of I/O, which would not fit in pins
+# and is not how it will be used: later CVA6 drives these ports from inside the chip).
+# Only clk (CLOCK_50) and rst_n (KEY0) are real pins.
+set_global_assignment -name FAMILY "Cyclone V"
+set_global_assignment -name DEVICE 5CSXFC6D6F31C6
+set_global_assignment -name TOP_LEVEL_ENTITY matmul_top
+set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
+set_global_assignment -name VERILOG_FILE rtl/pe.v
+set_global_assignment -name VERILOG_FILE rtl/systolic_array.v
+set_global_assignment -name VERILOG_FILE rtl/skew_buffer.v
+set_global_assignment -name VERILOG_FILE rtl/sram_sdp.v
+set_global_assignment -name VERILOG_FILE rtl/matmul_ctrl.v
+set_global_assignment -name VERILOG_FILE rtl/matmul_top.v
+set_global_assignment -name SDC_FILE matmul.sdc
+
+set_location_assignment PIN_AF14 -to clk
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to clk
+set_location_assignment PIN_AJ4 -to rst_n
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to rst_n
+
+set_instance_assignment -name VIRTUAL_PIN ON -to a_we
+set_instance_assignment -name VIRTUAL_PIN ON -to a_waddr[*]
+set_instance_assignment -name VIRTUAL_PIN ON -to a_wdata[*]
+set_instance_assignment -name VIRTUAL_PIN ON -to b_we
+set_instance_assignment -name VIRTUAL_PIN ON -to b_waddr[*]
+set_instance_assignment -name VIRTUAL_PIN ON -to b_wdata[*]
+set_instance_assignment -name VIRTUAL_PIN ON -to c_raddr[*]
+set_instance_assignment -name VIRTUAL_PIN ON -to c_rdata[*]
+set_instance_assignment -name VIRTUAL_PIN ON -to start
+set_instance_assignment -name VIRTUAL_PIN ON -to k_len[*]
+set_instance_assignment -name VIRTUAL_PIN ON -to accumulate
+set_instance_assignment -name VIRTUAL_PIN ON -to busy
+set_instance_assignment -name VIRTUAL_PIN ON -to done
+
+set_global_assignment -name LAST_QUARTUS_VERSION "25.1std.0 Lite Edition"
