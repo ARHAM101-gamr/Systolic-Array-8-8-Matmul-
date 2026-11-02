@@ -157,6 +157,7 @@ project folder), then run it in PowerShell. Results land in `output_files/`:
 All data ports are **virtual pins** — the unit is meant to be driven from inside the FPGA
 by CVA6, not from board pins. Only `clk` (CLOCK_50, PIN_AF14) and `rst_n` (KEY0, PIN_AJ4)
 are real pins.
+<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/c1c9d80a-5c31-4084-8c62-fa8d502c1d5e" />
 
 ---
 
