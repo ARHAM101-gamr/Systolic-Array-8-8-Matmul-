@@ -159,7 +159,8 @@ by CVA6, not from board pins. Only `clk` (CLOCK_50, PIN_AF14) and `rst_n` (KEY0,
 are real pins.
 <img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/c1c9d80a-5c31-4084-8c62-fa8d502c1d5e" />
 
-##RTL Design
+---
+## RTL Design
 <img width="1853" height="1079" alt="image" src="https://github.com/user-attachments/assets/fcf426e0-a2dc-4db8-ad10-b171dfc6eda6" />
 
 ---
